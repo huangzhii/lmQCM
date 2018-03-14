@@ -1,11 +1,10 @@
 Package: lmQCM
 Type: Package
 Title: lmQCM: An Algorithm for Detecting Weak Quasi-Cliques in Weighted Graph with Applications in Gene Co-Expression Module Discovery in Cancers
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Version: 1.0.0
+Author: Zhi Huang
+Maintainer: Zhi Huang <zhihuan@umail.iu.edu>
+Description: An Algorithm for Detecting Weak Quasi-Cliques in Weighted Graph with Applications in Gene Co-Expression Module Discovery in Cancers.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
