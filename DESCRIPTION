@@ -1,12 +1,19 @@
 Package: lmQCM
 Type: Package
 Title: lmQCM: An Algorithm for Gene Co-Expression Analysis
-Version: 1.0.0
+Version: 0.1.0
+Date: 2018-03-14
 Author: Zhi Huang <zhihuan@umail.iu.edu>
 Maintainer: Zhi Huang <zhihuan@umail.iu.edu>
 Description: An Algorithm for Detecting Weak Quasi-Cliques in Weighted Graph with Applications in Gene Co-Expression Module Discovery in Cancers.
 License: MIT
 Encoding: UTF-8
+Depends:
+    genefilter,
+    Biobase
+Suggests:
+    devtools,
+    roxygen2
 LazyData: true
 RoxygenNote: 6.0.1
 URL: http://github.com/huangzhii/lmQCM
