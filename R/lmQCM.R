@@ -11,9 +11,9 @@
 #' @return mergedCluster
 #' @import genefilter
 #' @import Biobase
-#' @importFrom nnet
-#' @importFrom cor
-#' @importFrom stats
+#' @import nnet
+#' @import cor
+#' @import stats
 #' @export
 
 lmQCM <- function(data_in,gamma=0.55,t=1,lambda=1,beta=0.4,minClusterSize=10,CCmethod="pearson") {

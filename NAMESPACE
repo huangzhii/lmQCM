@@ -1,1 +1,5 @@
 exportPattern("^[[:alpha:]]+")
+importFrom(stats, "cor")
+importFrom(nnet, "which.is.max")
+import(genefilter)
+import(Biobase)

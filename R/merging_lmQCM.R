@@ -5,6 +5,11 @@
 #' @param beta beta value (default = 0.4)
 #' @param minClusterSize minimum length of cluster to retain (default = 10)
 #' @return mergedCluster
+#' @import genefilter
+#' @import Biobase
+#' @import nnet
+#' @import cor
+#' @import stats
 #' @export
 
 merging_lmQCM <- function(C, beta=0.4, minClusterSize=10){

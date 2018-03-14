@@ -6,6 +6,11 @@
 #' @param t t value (default = 1)
 #' @param lambda lambda value (default = 1)
 #' @return C
+#' @import genefilter
+#' @import Biobase
+#' @import nnet
+#' @import cor
+#' @import stats
 #' @export
 localMaximumQCM <- function (cMatrix, gamma = 0.55, t = 1, lambda = 1){
   C <- list()

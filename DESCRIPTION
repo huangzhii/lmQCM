@@ -6,11 +6,13 @@ Date: 2018-03-14
 Author: Zhi Huang <zhihuan@umail.iu.edu>
 Maintainer: Zhi Huang <zhihuan@umail.iu.edu>
 Description: An Algorithm for Detecting Weak Quasi-Cliques in Weighted Graph with Applications in Gene Co-Expression Module Discovery in Cancers.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 Depends:
     genefilter,
-    Biobase
+    Biobase,
+    nnet,
+    stats
 Suggests:
     devtools,
     roxygen2
