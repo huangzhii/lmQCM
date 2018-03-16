@@ -1,11 +1,19 @@
 Package: lmQCM
 Type: Package
-Title: lmQCM: An Algorithm for Gene Co-Expression Analysis
+Title: An Algorithm for Gene Co-Expression Analysis
 Version: 0.1.0
-Date: 2018-03-14
-Author: Zhi Huang <zhihuan@umail.iu.edu>
+Date: 2018-03-15
+Authors@R: c(person("Zhi", "Huang", email = "zhihuan@umail.iu.edu", role = c("aut", "cre")),
+             person("Jie", "Zhang", email = "jizhan@iu.edu", role = c("aut", "ctb")),
+             person("Kun", "Huang", email = "kunhuang@iu.edu", role = c("aut", "ctb")),
+             person("Zhi", "Han", email = "zhihan@iu.edu", role = c("aut", "ctb"))
+             )
+Author: Zhi Huang [aut, cre],
+        Jie Zhang [aut, ctb],
+        Kun Huang [aut, ctb],
+        Zhi Han [aut, ctb]
 Maintainer: Zhi Huang <zhihuan@umail.iu.edu>
-Description: An Algorithm for Detecting Weak Quasi-Cliques in Weighted Graph with Applications in Gene Co-Expression Module Discovery in Cancers.
+Description: Implementation based on Zhang, Jie & Huang, Kun (2014) <doi:10.4137/CIN.S14021> Normalized ImQCM: An Algorithm for Detecting Weak Quasi-Cliques in Weighted Graph with Applications in Gene Co-Expression Module Discovery in Cancers. Cancer informatics, 13, CIN-S14021.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends:
