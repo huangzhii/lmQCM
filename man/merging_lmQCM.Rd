@@ -14,7 +14,7 @@ merging_lmQCM(C, beta = 0.4, minClusterSize = 10)
 \item{minClusterSize}{minimum length of cluster to retain (default = 10)}
 }
 \value{
-mergedCluster
+mergedCluster - An merged clusters group
 }
 \description{
 Author: Zhi Huang

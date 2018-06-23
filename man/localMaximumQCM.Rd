@@ -16,7 +16,7 @@ localMaximumQCM(cMatrix, gamma = 0.55, t = 1, lambda = 1)
 \item{lambda}{lambda value (default = 1)}
 }
 \value{
-C
+An unmerged clusters group 'C'
 }
 \description{
 Author: Zhi Huang

@@ -5,7 +5,7 @@
 #' @param gamma gamma value (default = 0.55)
 #' @param t t value (default = 1)
 #' @param lambda lambda value (default = 1)
-#' @return C
+#' @return An unmerged clusters group 'C'
 #' @import genefilter
 #' @import Biobase
 #' @import nnet

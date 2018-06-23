@@ -23,8 +23,16 @@ lmQCM(data_in, gamma = 0.55, t = 1, lambda = 1, beta = 0.4,
 \item{CCmethod}{Methods for correlation coefficient calculation (default = "pearson"). Users can also pick "spearman".}
 }
 \value{
-mergedCluster
+mergedCluster - An merged clusters group
 }
 \description{
 Author: Zhi Huang
+}
+\examples{
+library(lmQCM)
+library(Biobase)
+data(sample.ExpressionSet)
+data = assayData(sample.ExpressionSet)$exprs
+lmQCM(data)
+
 }

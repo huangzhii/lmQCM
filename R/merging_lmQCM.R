@@ -4,7 +4,7 @@
 #' @param C Resulting clusters
 #' @param beta beta value (default = 0.4)
 #' @param minClusterSize minimum length of cluster to retain (default = 10)
-#' @return mergedCluster
+#' @return mergedCluster - An merged clusters group
 #' @import genefilter
 #' @import Biobase
 #' @import nnet
