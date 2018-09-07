@@ -31,7 +31,7 @@ localMaximumQCM <- function (cMatrix, gamma = 0.55, t = 1, lambda = 1){
   sortMaxV <- res$x
   sortMaxInd <- res$ix
   sortMaxEdges <- maxEdges[sortMaxInd,]
-  print(sprintf("Number of Maximum Edges: %d", length(sortMaxInd)))
+  message(sprintf("Number of Maximum Edges: %d", length(sortMaxInd)))
 
   currentInit <- 1
   noNewInit <- 0

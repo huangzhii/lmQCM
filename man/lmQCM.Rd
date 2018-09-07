@@ -5,7 +5,7 @@
 \title{lmQCM: Main Routine for Gene Co-expression Analysis}
 \usage{
 lmQCM(data_in, gamma = 0.55, t = 1, lambda = 1, beta = 0.4,
-  minClusterSize = 10, CCmethod = "pearson")
+  minClusterSize = 10, CCmethod = "pearson", normalization = F)
 }
 \arguments{
 \item{data_in}{real-valued expression matrix with rownames indicating gene ID or gene symbol}
@@ -21,6 +21,8 @@ lmQCM(data_in, gamma = 0.55, t = 1, lambda = 1, beta = 0.4,
 \item{minClusterSize}{minimum length of cluster to retain (default = 10)}
 
 \item{CCmethod}{Methods for correlation coefficient calculation (default = "pearson"). Users can also pick "spearman".}
+
+\item{normalization}{Determine if normalization is needed on massive correlation coefficient matrix.}
 }
 \value{
 mergedCluster - An merged clusters group
