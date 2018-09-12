@@ -9,7 +9,6 @@
 #' @import genefilter
 #' @import Biobase
 #' @import nnet
-#' @import cor
 #' @import stats
 #' @export
 localMaximumQCM <- function (cMatrix, gamma = 0.55, t = 1, lambda = 1){

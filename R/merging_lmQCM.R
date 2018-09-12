@@ -8,7 +8,6 @@
 #' @import genefilter
 #' @import Biobase
 #' @import nnet
-#' @import cor
 #' @import stats
 #' @export
 
