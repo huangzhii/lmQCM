@@ -61,7 +61,7 @@ merging_lmQCM <- function(C, beta=0.4, minClusterSize=10){
     currentInd <- 0
   }
   for (i in 1:length(mergedCluster)){
-    mergedCluster[[i]] = unname(mergedCluster[[i]])
+    mergedCluster[[i]] <- unname(mergedCluster[[i]])
   }
   return(mergedCluster)
 }

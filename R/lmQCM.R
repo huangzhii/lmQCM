@@ -40,7 +40,7 @@ lmQCM <- function(data_in,gamma=0.55,t=1,lambda=1,beta=0.4,minClusterSize=10,CCm
   }
 
   C <- localMaximumQCM(cMatrix, gamma, t, lambda)
-  mergedCluster <<- merging_lmQCM(C, beta, minClusterSize)
+  mergedCluster <- merging_lmQCM(C, beta, minClusterSize)
   message("Done.")
   return(mergedCluster)
 }

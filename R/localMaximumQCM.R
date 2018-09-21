@@ -60,7 +60,7 @@ localMaximumQCM <- function (cMatrix, gamma = 0.55, t = 1, lambda = 1){
             newCluster <- c(newCluster, remainInd[maxNeighborInd])
             nCp <- nCp + 1
             currentDensity <- (currentDensity*((nCp-1)*(nCp-2)/2)+maxNeighborWeight)/(nCp*(nCp-1)/2)
-            remainInd = setdiff(remainInd, remainInd[maxNeighborInd]);
+            remainInd <- setdiff(remainInd, remainInd[maxNeighborInd]);
           }
           else {
             addingMode <- 0
