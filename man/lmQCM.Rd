@@ -25,7 +25,7 @@ lmQCM(data_in, gamma = 0.55, t = 1, lambda = 1, beta = 0.4,
 \item{normalization}{Determine if normalization is needed on massive correlation coefficient matrix.}
 }
 \value{
-mergedCluster - An merged clusters group
+QCMObject - An S4 Class with lmQCM results
 }
 \description{
 Author: Zhi Huang
@@ -35,6 +35,7 @@ library(lmQCM)
 library(Biobase)
 data(sample.ExpressionSet)
 data = assayData(sample.ExpressionSet)$exprs
+data = fastFilter(data, 0.2, 0.2)
 lmQCM(data)
 
 }
