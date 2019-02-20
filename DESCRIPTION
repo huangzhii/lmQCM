@@ -14,14 +14,15 @@ Author: Zhi Huang [aut, cre],
         Zhi Han [aut, ctb]
 Maintainer: Zhi Huang <huang898@purdue.edu>
 Description: Implementation based on Zhang, Jie & Huang, Kun (2014) <doi:10.4137/CIN.S14021> Normalized ImQCM: An Algorithm for Detecting Weak Quasi-Cliques in Weighted Graph with Applications in Gene Co-Expression Module Discovery in Cancers. Cancer informatics, 13, CIN-S14021.
-Imports: genefilter, Biobase, nnet, stats
+Imports: genefilter, Biobase, nnet, stats, methods
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends:
     genefilter,
     Biobase,
     nnet,
-    stats
+    stats,
+    methods
 Suggests:
     devtools,
     roxygen2

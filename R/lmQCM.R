@@ -25,6 +25,7 @@ setClass("QCMObject", representation(clusters.id = "list", clusters.names = "lis
 #' @import Biobase
 #' @import nnet
 #' @import stats
+#' @import methods
 #' @export
 lmQCM <- function(data_in,gamma=0.55,t=1,lambda=1,beta=0.4,minClusterSize=10,CCmethod="pearson", normalization = F) {
   message("Calculating massive correlation coefficient ...")
@@ -48,14 +49,14 @@ lmQCM <- function(data_in,gamma=0.55,t=1,lambda=1,beta=0.4,minClusterSize=10,CCm
   clusters.names = list()
   for (i in 1:length(clusters)){
     mc = clusters[[i]]
-    clusters.names[[i]] = rownames(data)[mc]
+    clusters.names[[i]] = rownames(data_in)[mc]
   }
   # calculate eigengene
-  eigengene.matrix <- matrix(0, nrow = length(clusters), ncol = dim(data)[2]) # Clusters * Samples
+  eigengene.matrix <- matrix(0, nrow = length(clusters), ncol = dim(data_in)[2]) # Clusters * Samples
 
   for (i in 1:(length(clusters.names))) {
     geneID <- as.matrix(clusters.names[[i]])
-    X <- data[geneID,]
+    X <- data_in[geneID,]
     mu <- rowMeans(X)
     stddev <- rowSds(as.matrix(X), na.rm=TRUE) # standard deviation with 1/(n-1)
     XNorm <- sweep(X,1,mu) # normalize X
@@ -64,9 +65,9 @@ lmQCM <- function(data_in,gamma=0.55,t=1,lambda=1,beta=0.4,minClusterSize=10,CCm
     eigengene.matrix[i,] <- t(SVD$v[,1])
   }
   eigengene.matrix = data.frame(eigengene.matrix)
-  colnames(eigengene.matrix) = colnames(data)
+  colnames(eigengene.matrix) = colnames(data_in)
 
-  QCMObject <- new("QCMObject", clusters.id = clusters, clusters.names = clusters.names,
+  QCMObject <- methods::new("QCMObject", clusters.id = clusters, clusters.names = clusters.names,
                    eigengene.matrix = eigengene.matrix)
 
   message("Done.")
