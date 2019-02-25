@@ -5,7 +5,7 @@
 \title{fastFilter: Subroutine for filtering expression matrix}
 \usage{
 fastFilter(RNA, lowest_percentile_mean = 0.2,
-  lowest_percentile_variance = 0.2)
+  lowest_percentile_variance = 0.2, var.func = "var")
 }
 \arguments{
 \item{RNA}{an expression matrix (rows: genes; columns: samples)}
@@ -13,6 +13,8 @@ fastFilter(RNA, lowest_percentile_mean = 0.2,
 \item{lowest_percentile_mean}{a float value range 0-1}
 
 \item{lowest_percentile_variance}{a float value range 0-1}
+
+\item{var.func}{specify variance function}
 }
 \value{
 An filtered expression matrix
