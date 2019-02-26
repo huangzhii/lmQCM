@@ -23,7 +23,6 @@ setClass("QCMObject", representation(clusters.id = "list", clusters.names = "lis
 #'
 #' @import genefilter
 #' @import Biobase
-#' @import nnet
 #' @import stats
 #' @import methods
 #' @export

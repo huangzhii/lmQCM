@@ -8,7 +8,7 @@
 #' @return An unmerged clusters group 'C'
 #' @import genefilter
 #' @import Biobase
-#' @import nnet
+#' @import progress
 #' @import stats
 #' @export
 localMaximumQCM <- function (cMatrix, gamma = 0.55, t = 1, lambda = 1){
@@ -16,15 +16,20 @@ localMaximumQCM <- function (cMatrix, gamma = 0.55, t = 1, lambda = 1){
   nRow <- nrow(cMatrix)
   maxV <- apply(cMatrix, 2, max)
   maxInd <- apply(cMatrix, 2, which.max) # several diferrences comparing with Matlab results
+
+
   # Step 1 - find the local maximal edges
-  maxEdges <- matrix(0, nrow = 0, ncol = 2)
-  maxW <- matrix(0, nrow = 0, ncol = 1)
-  for (i in 1:nRow){
-    if (maxV[i] == max(cMatrix[maxInd[i], ])) {
-      maxEdges <- rbind(maxEdges, c(maxInd[i], i))
-      maxW <- rbind(maxW, maxV[i])
-    }
-  }
+  # maxEdges <- matrix(0, nrow = 0, ncol = 2)
+  # maxW <- matrix(0, nrow = 0, ncol = 1)
+  # for (i in 1:nRow){
+  #   if (maxV[i] == max(cMatrix[maxInd[i], ])) {
+  #     maxEdges <- rbind(maxEdges, c(maxInd[i], i))
+  #     maxW <- rbind(maxW, maxV[i])
+  #   }
+  # }
+  lm.ind <- which(maxV == sapply(maxInd, function(x) max(cMatrix[x,])))
+  maxEdges <- cbind(maxInd[lm.ind], lm.ind)
+  maxW <- maxV[lm.ind]
 
   res <- sort.int(maxW, decreasing = TRUE, index.return=TRUE)
   sortMaxV <- res$x
@@ -36,7 +41,13 @@ localMaximumQCM <- function (cMatrix, gamma = 0.55, t = 1, lambda = 1){
   noNewInit <- 0
 
   nodesInCluster <- matrix(0, nrow = 0, ncol = 1)
+
+  pb <- progress_bar$new(format = " Calculating [:bar] :percent eta: :eta",
+                         total = length(sortMaxInd), clear = F, width=60)
+
+
   while ((currentInit <= length(sortMaxInd)) & (noNewInit == 0)) {
+    pb$tick()
     if (sortMaxV[currentInit] < (gamma * sortMaxV[1]) ) {
       noNewInit <- 1
     }
@@ -53,7 +64,7 @@ localMaximumQCM <- function (cMatrix, gamma = 0.55, t = 1, lambda = 1){
         while (addingMode == 1) {
           neighborWeights <- colSums(cMatrix[newCluster, remainInd])
           maxNeighborWeight <- max(neighborWeights)
-          maxNeighborInd <- which.is.max(neighborWeights)
+          maxNeighborInd <- which.max(neighborWeights)
           c_v = maxNeighborWeight/nCp;
           alphaN = 1 - 1/(2*lambda*(nCp+t));
           if (c_v >= alphaN * currentDensity) {
@@ -72,5 +83,6 @@ localMaximumQCM <- function (cMatrix, gamma = 0.55, t = 1, lambda = 1){
     }
     currentInit <- currentInit + 1
   }
+  message(" Calculation Finished.")
   return(C)
 }

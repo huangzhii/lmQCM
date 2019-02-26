@@ -29,7 +29,7 @@ merging_lmQCM <- function(C, beta=0.4, minClusterSize=10){
   mergeOccur <- 1
   currentInd <- 0
 
-  message("Start merging ...")
+  message(sprintf(" %d Modules before merging.", length(C)))
   while (mergeOccur == 1) {
     mergeOccur <- 0
     while (currentInd < length(mergedCluster)){
@@ -47,7 +47,7 @@ merging_lmQCM <- function(C, beta=0.4, minClusterSize=10){
           }
         }
         mergedCluster <- mergedCluster[keepInd]
-        message(sprintf("The length of merged Cluster: %d", length(mergedCluster)))
+        # message(sprintf("The length of merged Cluster: %d", length(mergedCluster)))
       }
     }
     sizeMergedCluster <- matrix(0, nrow = 0, ncol = length(mergedCluster))
@@ -63,5 +63,6 @@ merging_lmQCM <- function(C, beta=0.4, minClusterSize=10){
   for (i in 1:length(mergedCluster)){
     mergedCluster[[i]] <- unname(mergedCluster[[i]])
   }
+  message(sprintf(" %d Modules remain after merging.", length(mergedCluster)))
   return(mergedCluster)
 }

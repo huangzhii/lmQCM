@@ -19,7 +19,7 @@ Encoding: UTF-8
 Depends:
     genefilter,
     Biobase,
-    nnet,
+    progress,
     stats,
     methods
 Suggests:
