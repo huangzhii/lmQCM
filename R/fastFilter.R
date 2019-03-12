@@ -8,7 +8,6 @@
 #' @return An filtered expression matrix
 #' @import genefilter
 #' @import Biobase
-#' @import nnet
 #' @import stats
 #' @export
 fastFilter <- function (RNA, lowest_percentile_mean = 0.2, lowest_percentile_variance = 0.2, var.func = "var"){

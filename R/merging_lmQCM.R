@@ -7,7 +7,6 @@
 #' @return mergedCluster - An merged clusters group
 #' @import genefilter
 #' @import Biobase
-#' @import nnet
 #' @import stats
 #' @export
 
