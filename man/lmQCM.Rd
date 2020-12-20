@@ -4,8 +4,16 @@
 \alias{lmQCM}
 \title{lmQCM: Main Routine for Gene Co-expression Analysis}
 \usage{
-lmQCM(data_in, gamma = 0.55, t = 1, lambda = 1, beta = 0.4,
-  minClusterSize = 10, CCmethod = "pearson", normalization = F)
+lmQCM(
+  data_in,
+  gamma = 0.55,
+  t = 1,
+  lambda = 1,
+  beta = 0.4,
+  minClusterSize = 10,
+  CCmethod = "pearson",
+  normalization = F
+)
 }
 \arguments{
 \item{data_in}{real-valued expression matrix with rownames indicating gene ID or gene symbol}

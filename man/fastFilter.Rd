@@ -4,8 +4,12 @@
 \alias{fastFilter}
 \title{fastFilter: Subroutine for filtering expression matrix}
 \usage{
-fastFilter(RNA, lowest_percentile_mean = 0.2,
-  lowest_percentile_variance = 0.2, var.func = "var")
+fastFilter(
+  RNA,
+  lowest_percentile_mean = 0.2,
+  lowest_percentile_variance = 0.2,
+  var.func = "var"
+)
 }
 \arguments{
 \item{RNA}{an expression matrix (rows: genes; columns: samples)}
