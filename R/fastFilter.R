@@ -71,6 +71,6 @@ fastFilter <- function (RNA, lowest_percentile_mean = 0.2, lowest_percentile_var
   }
 
   message(sprintf("(%d genes, %d samples) after removing lowest %.2f%% variance expression value.",
-                  dim(RNA_filtered2)[1], dim(RNA_filtered2)[2], lowest_percentile_mean*100))
+                  dim(RNA_filtered2)[1], dim(RNA_filtered2)[2], lowest_percentile_variance*100))
   return(RNA_filtered2)
 }
