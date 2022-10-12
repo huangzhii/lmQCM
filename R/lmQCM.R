@@ -10,6 +10,7 @@ setClass("QCMObject", representation(clusters.id = "list", clusters.names = "lis
 #' @param beta beta value (default = 0.4)
 #' @param minClusterSize minimum length of cluster to retain (default = 10)
 #' @param CCmethod Methods for correlation coefficient calculation (default = "pearson"). Users can also pick "spearman".
+#' @param positiveCorrelation This determines if correlation matrix should convert to positive (with abs function) or not.
 #' @param normalization Determine if normalization is needed on massive correlation coefficient matrix.
 #' @return QCMObject - An S4 Class with lmQCM results
 #'
@@ -26,11 +27,15 @@ setClass("QCMObject", representation(clusters.id = "list", clusters.names = "lis
 #' @import stats
 #' @import methods
 #' @export
-lmQCM <- function(data_in,gamma=0.55,t=1,lambda=1,beta=0.4,minClusterSize=10,CCmethod="pearson", normalization = F) {
+lmQCM <- function(data_in,gamma=0.55,t=1,lambda=1,beta=0.4,minClusterSize=10,CCmethod="pearson",positiveCorrelation=F,normalization=F) {
   message("Calculating massive correlation coefficient ...")
   cMatrix <- cor(t(data_in), method = CCmethod)
   diag(cMatrix) <- 0
-  cMatrix <- abs(cMatrix)
+
+  if (positiveCorrelation){
+    cMatrix <- abs(cMatrix)
+  }
+
   if(normalization){
     # Normalization
     D <- rowSums(cMatrix)
@@ -60,7 +65,21 @@ lmQCM <- function(data_in,gamma=0.55,t=1,lambda=1,beta=0.4,minClusterSize=10,CCm
     XNorm <- sweep(X,1,mu) # normalize X
     XNorm <- apply(XNorm, 2, function(x) x/stddev)
     SVD <- svd(XNorm)
-    eigengene.matrix[i,] <- t(SVD$v[,1])
+    eigenvector.first = SVD$v[,1]
+
+
+    # Compute the sign of the eigengene.
+    # 1. Correlate the eigengene value with each of the gene's expression in that module across all samples used to generate the module.
+    # 2. If >50% of the correlations is negative, then assign a – sign to the eigengene.
+    # 3. If 50% or more correlation is positive, the eigengene remains positive.
+    # 4. Output the eigene value table with the sign carried (if it is negative).
+
+    negative_ratio = sum(cor(t(X), eigenvector.first) < 0)/dim(X)[1]
+    if (negative_ratio > 0.5){
+      eigenvector.first = -eigenvector.first
+    }
+
+    eigengene.matrix[i,] <- t(eigenvector.first)
   }
   eigengene.matrix = data.frame(eigengene.matrix)
   colnames(eigengene.matrix) = colnames(data_in)

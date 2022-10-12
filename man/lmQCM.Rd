@@ -12,6 +12,7 @@ lmQCM(
   beta = 0.4,
   minClusterSize = 10,
   CCmethod = "pearson",
+  positiveCorrelation = F,
   normalization = F
 )
 }
@@ -29,6 +30,8 @@ lmQCM(
 \item{minClusterSize}{minimum length of cluster to retain (default = 10)}
 
 \item{CCmethod}{Methods for correlation coefficient calculation (default = "pearson"). Users can also pick "spearman".}
+
+\item{positiveCorrelation}{This determines if correlation matrix should convert to positive (with abs function) or not.}
 
 \item{normalization}{Determine if normalization is needed on massive correlation coefficient matrix.}
 }
